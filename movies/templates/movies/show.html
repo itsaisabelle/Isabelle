@@ -40,6 +40,7 @@
         <hr />
         <ul class="list-group">
           {% for review in template_data.reviews %}
+          {% if not review.reported %}
           <li class="list-group-item pb-3 pt-3" style="word-wrap: break-word;">
             <h5 class="card-title">
               Review by {{ review.user.username }}
@@ -65,6 +66,7 @@
             </a>
             {% endif %}
           </li>
+          {% endif %}
           {% endfor %}
         </ul>
 

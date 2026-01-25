@@ -78,20 +78,14 @@ def create_report(request, id, review_id):
         return render(request, 'movies/create_report.html',
             {'template_data': template_data})
     if request.method == 'POST' and request.POST['comment'] != '':
+        review.reported = True
+
         report = Report()
         report.comment = request.POST['comment']
         report.user = request.user
-
-        reviewCopy = Review()
-        reviewCopy.comment = review.comment
-        reviewCopy.movie = review.movie
-        reviewCopy.date = review.date
-        reviewCopy.user = review.user
+        report.review = review
         
-        reviewCopy.save()
-        report.review = reviewCopy
-        review.delete()
-        
+        review.save()
         report.save()
         return redirect('movies.show', id=id)
     else:
