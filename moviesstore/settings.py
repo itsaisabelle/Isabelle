@@ -38,12 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'star_ratings',
     'home',
     'movies',
     'accounts',
     'cart',
     'map',
 ]
+
+# Star rating constants
+STAR_RATINGS_RERATE = True
+STAR_RATINGS_RERATE_SAME_DELETE = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

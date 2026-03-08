@@ -15,7 +15,7 @@ class Movie(models.Model):
 
     def __str__(self):
         return str(self.id) + ' - ' + self.name
-    
+
 class Review(models.Model):
     id = models.AutoField(primary_key=True)
     comment = models.CharField(max_length=255)

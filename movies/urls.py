@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -7,5 +7,6 @@ urlpatterns = [
   path('<int:id>/review/create/', views.create_review, name='movies.create_review'),
   path('<int:id>/review/<int:review_id>/edit/', views.edit_review, name='movies.edit_review'),
   path('<int:id>/review/<int:review_id>/delete/', views.delete_review, name='movies.delete_review'),
-  path('<int:id>/review/<int:review_id>/report/', views.create_report, name='movies.create_report')
+  path('<int:id>/review/<int:review_id>/report/', views.create_report, name='movies.create_report'),
+  path('ratings/', include('star_ratings.urls', namespace='ratings')),
 ]

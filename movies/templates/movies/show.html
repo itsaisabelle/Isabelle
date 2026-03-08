@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+{% load ratings %}
 <div class="p-3">
   <div class="container">
     <div class="row mt-3">
@@ -17,6 +18,7 @@
         <p class="card-text">
           <form method="post"
             action="{% url 'cart.add' id=template_data.movie.id %}">
+            {% ratings template_data.movie %}
             <div class="row">
               {% csrf_token %}
               <div class="col-auto">
@@ -78,6 +80,7 @@
                 <div class="card-body">
                   <b class="text-start">Create a review</b><br /><br />
                   <form method="POST" action="{% url 'movies.create_review' id=template_data.movie.id %}">
+                    <!-- Add star ratings here somehow, make it possible for a review to exist with no comment -->
                     {% csrf_token %}
                     <p>
                       <label for="comment">Comment:</label>
