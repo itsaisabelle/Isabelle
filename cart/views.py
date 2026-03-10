@@ -66,6 +66,7 @@ def index(request):
         states_dict[loc.state].append({'id': loc.id, 'city': loc.city})
     
     template_data['states_dict'] = states_dict
+    template_data['states'] = sorted(states_dict.keys())
     return render(request, 'cart/index.html', {'template_data': template_data})
 
 def add(request, id):

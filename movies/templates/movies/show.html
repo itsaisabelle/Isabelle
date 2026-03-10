@@ -15,10 +15,13 @@
           <b>Price:</b> ${{ template_data.movie.price }}
         </p>
 
-        <p class="card-text">
+        <div class="card-text">
+          {% ratings template_data.movie %}
+        </div>
+
+        <div class="card-text">
           <form method="post"
             action="{% url 'cart.add' id=template_data.movie.id %}">
-            {% ratings template_data.movie %}
             <div class="row">
               {% csrf_token %}
               <div class="col-auto">
@@ -36,7 +39,7 @@
               </div>
             </div>
           </form>
-        </p>
+        </div>
 
         <h2>Reviews</h2>
         <hr />

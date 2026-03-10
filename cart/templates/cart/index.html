@@ -41,9 +41,9 @@
         <form action="{% url 'cart.purchase' %}" method="POST" class="d-inline">
           {% csrf_token %}
 
-          <select id="state_select" class="form-select d-inline w-auto mb-2" required>
-            <option value="" disabled slected>Select State...</option>
-            {% for state in template_data.states_dict.keys %}
+          <select id="state_select" name="state" class="form-select d-inline w-auto mb-2" required>
+            <option value="" disabled selected>Select State...</option>
+            {% for state in template_data.states %}
               <option value="{{ state }}">{{ state }}</option>
             {% endfor %}
           </select>
